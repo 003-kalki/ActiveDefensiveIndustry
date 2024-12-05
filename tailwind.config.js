@@ -22,11 +22,16 @@ export default {
       backgroundImage: {
         // Add a circular dot pattern
         'dot-pattern': `
-          radial-gradient(circle, #e0e0e0 1px, transparent 1px)`,
+          radial-gradient(circle, #444444, 1px, transparent 1px)`,
+          'hero-gradient': 'linear-gradient(270.3deg, rgba(84, 212, 228, 1) 0.2%, rgba(68, 36, 164, 1) 100%)',
       },
       backgroundSize: {
         // Adjust the spacing between dots
         'dots-spacing': '20px 20px',
+      },
+     
+      animation: {
+        bgChange: 'bgChange 5s ease-in-out infinite', // Animation settings
       },
     },
     screens: {
@@ -52,6 +57,7 @@ export default {
         { values: flattenColorPalette(theme("backgroundColor")), type: "color" }
       );
     },
+      require("tailwindcss-animate"),
   ],
 };
 function addVariablesForColors({ addBase, theme }) {
