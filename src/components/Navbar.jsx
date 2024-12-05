@@ -7,7 +7,7 @@ const Navbar = () => {
   const [toggle, setToggle] = useState(false);
 
   return (
-    <nav className="w-full bg-black flex py-6 justify-between items-center px-6">
+    <nav className="w-full bg-black flex py-6 justify-between items-center px-6 sticky top-0 z-50">
       {/* Add padding to the left */}
       <p className="text-white font-semibold font-poppins pl-4">ActiveDfensiveIndustry</p>
 
