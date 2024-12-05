@@ -1,5 +1,5 @@
 import React from 'react';
-
+import {  Highlight } from "./ui/heroHighlight";
 function Hero() {
   return (
     <div
@@ -7,8 +7,8 @@ function Hero() {
     >
       {/* Hero section */}
       <div className="h-56 items-center w-full relative flex flex-col justify-center">
-        <h1 className="text-white text-3xl md:text-6xl font-bold mb-4">
-          Active Defensive Industry
+      <h1 className="text-white text-3xl md:text-6xl font-bold mb-4">
+          <Highlight className="text-white">Active Defensive Industry</Highlight>
         </h1>
         <p className="text-gray-300 text-lg md:text-2xl max-w-4xl mb-6">
           Pioneering state-of-the-art security devices to safeguard what matters most. 
