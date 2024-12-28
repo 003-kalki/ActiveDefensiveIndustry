@@ -1,64 +1,51 @@
-import React from "react";
-import { Carousel, Card } from "./ui/apple-cards-carousel"; // Ensure correct path
+import React from 'react';
+import poolImage from "../assets/tesla.jpg";
+import homeImage from "../assets/tesla.jpg";
+import ranchImage from "../assets/tesla.jpg";
 
-const data = [
-  {
-    category: "Artificial Intelligence",
-    title: "You can do more with AI.",
-    src: "https://images.unsplash.com/photo-1593508512255-86ab42a8e620?q=80&w=3556&auto=format&fit=crop&ixlib=rb-4.0.3",
-    content: <DummyContent />,
-  },
-  {
-    category: "Productivity",
-    title: "Enhance your productivity.",
-    src: "https://images.unsplash.com/photo-1531554694128-c4c6665f59c2?q=80&w=3387&auto=format&fit=crop&ixlib=rb-4.0.3",
-    content: <DummyContent />,
-  },
-  {
-    category: "Product",
-    title: "Launching the new Apple Vision Pro.",
-    src: "https://images.unsplash.com/photo-1713869791518-a770879e60dc?q=80&w=2333&auto=format&fit=crop&ixlib=rb-4.0.3",
-    content: <DummyContent />,
-  },
-  {
-    category: "Product",
-    title: "Maps for your iPhone 15 Pro Max.",
-    src: "https://images.unsplash.com/photo-1599202860130-f600f4948364?q=80&w=2515&auto=format&fit=crop&ixlib=rb-4.0.3",
-    content: <DummyContent />,
-  },
-];
-
-const DummyContent = () => {
+export default function Solutions() {
   return (
-    <div className="bg-[#F5F5F7] dark:bg-neutral-800 p-8 md:p-14 rounded-3xl mb-4">
-      <p className="text-neutral-600 dark:text-neutral-400 text-base md:text-2xl font-sans max-w-3xl mx-auto">
-        <span className="font-bold text-neutral-700 dark:text-neutral-200">
-          The first rule of Apple club is that you boast about Apple club.
-        </span>{" "}
-        Keep a journal, quickly jot down a grocery list, and take amazing
-        class notes. Want to convert those notes to text? No problem.
-        Langotiya jeetu ka mara hua yaar is ready to capture every thought.
-      </p>
-      <img
-        src="https://assets.aceternity.com/macbook.png"
-        alt="Macbook mockup from Aceternity UI"
-        className="md:w-1/2 md:h-1/2 h-full w-full mx-auto object-contain"
-      />
-    </div>
-  );
-};
+    <div className="text-customText min-h-screen w-full bg-black px-8 py-12">
+      <h1 className="text-4xl font-bold text-center mb-12">Smart Security, Smarter Peace of Mind</h1>
+      
+      {/* Pool Security Section */}
+      <div className="flex flex-col md:flex-row items-center mb-12 bg-cardBackground p-6 rounded-lg shadow-lg">
+        <div className="md:w-1/2 p-6">
+          <h2 className="text-3xl font-bold mb-4">Pool Security</h2>
+          <p className="text-lg">
+            Our AI-powered pool monitoring system uses advanced motion sensors and real-time alerts to ensure every splash is safe.
+          </p>
+        </div>
+        <div className="md:w-1/2">
+          <img src={poolImage} alt="Pool Security Solution" className="rounded-lg shadow-md" />
+        </div>
+      </div>
 
-export default function Shop() {
-  const cards = data.map((card, index) => (
-    <Card key={card.src} card={card} index={index} />
-  ));
+      {/* Home Security Section */}
+      <div className="flex flex-col md:flex-row-reverse items-center mb-12 bg-cardBackground p-6 rounded-lg shadow-lg">
+        <div className="md:w-1/2 p-6">
+          <h2 className="text-3xl font-bold mb-4">Home Security</h2>
+          <p className="text-lg">
+            Our devices provide smart intruder detection, employee theft prevention, and real-time notifications to keep your spaces secure.
+          </p>
+        </div>
+        <div className="md:w-1/2">
+          <img src={homeImage} alt="Home Security Solution" className="rounded-lg shadow-md" />
+        </div>
+      </div>
 
-  return (
-    <div className="w-full h-full py-20">
-      <h2 className="max-w-7xl pl-4 mx-auto text-xl md:text-5xl font-bold text-neutral-800 dark:text-neutral-200 font-sans">
-        Get to know your iSad.
-      </h2>
-      <Carousel items={cards} />
+      {/* Ranch Security Section */}
+      <div className="flex flex-col md:flex-row items-center bg-cardBackground p-6 rounded-lg shadow-lg">
+        <div className="md:w-1/2 p-6">
+          <h2 className="text-3xl font-bold mb-4">Ranch Security</h2>
+          <p className="text-lg">
+            With long-range detection, smart boundary alerts, and integration with drones, our system ensures no intruder goes unnoticed.
+          </p>
+        </div>
+        <div className="md:w-1/2">
+          <img src={ranchImage} alt="Ranch Security Solution" className="rounded-lg shadow-md" />
+        </div>
+      </div>
     </div>
   );
 }

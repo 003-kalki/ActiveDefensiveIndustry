@@ -15,7 +15,7 @@ export default function App() {
        <Hero/>
        <About/>
        <Solution/>
-       <Shop/>
+         <Shop/>
        <Footer/>
       <Routes>
       
