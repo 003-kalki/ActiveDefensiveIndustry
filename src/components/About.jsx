@@ -3,14 +3,30 @@ import tesla from "../assets/tesla.jpg";
 
 export default function About() {
   return (
-    <div className="text-white min-h-screen w-full bg-black bg-dot-pattern bg-dots-spacing text-center  flex">
-      
-      <div className="flex-1 flex-col  ">
-        <h1 className="flex">Protecting What Matters Most</h1>
-        <p1 className="flex">At [Your Business Name], safety isn't just a priority—it's a commitment. Our innovative pool monitoring devices are designed to bring you peace of mind, ensuring that your loved ones are always secure.</p1>
+    <div className="text-white min-h-screen w-full bg-black flex flex-col md:flex-row items-center md:items-start px-6 md:px-12">
+      {/* Text Section */}
+      <div className="flex-1 md:pr-8 space-y-6">
+        <h1 className="text-4xl font-bold mb-4">
+          Unseen Threats, Smarter Solutions
+        </h1>
+        <p className="text-lg">
+          More than <span className="font-semibold text-red-500">4,000 drownings</span> happen every year. Most could have been prevented with smarter real-time monitoring.
+        </p>
+        <p className="text-lg">
+          Over <span className="font-semibold text-yellow-500">35% of business losses</span> come from internal theft. Why wait until after the loss to act?
+        </p>
+        <p className="text-lg">
+          Ranchers lose <span className="font-semibold text-green-500">millions annually</span> due to livestock theft. Protecting a ranch requires smarter perimeter monitoring, not just cameras.
+        </p>
       </div>
-      <div className="flex-1 text-left flex justify-end px-4">
-        <img className="h-52" src={tesla} alt="Tesla" />
+
+      {/* Image Section */}
+      <div className="flex-1 flex justify-center mt-8 md:mt-0">
+        <img
+          className="rounded-lg shadow-lg max-w-full md:max-w-[80%] lg:max-w-[60%] h-auto"
+          src={tesla}
+          alt="Security Device"
+        />
       </div>
     </div>
   );
