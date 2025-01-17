@@ -1,5 +1,7 @@
 import React from 'react';
 import { World } from "./ui/Globe";
+import { Typewriter } from 'react-simple-typewriter';
+
 function Hero() {
   const globeConfig = {
     globeColor: "#1d072e",
@@ -32,16 +34,28 @@ function Hero() {
       color: "#00ff00",
     },
   ];
+
   return (
-    <div
-      className="min-h-screen w-full bg-black bg-dot-pattern bg-dots-spacing flex flex-col items-center justify-center text-center px-4"
-    >
+    <div className="min-h-screen w-full bg-black bg-dot-pattern bg-dots-spacing flex flex-col items-center justify-center text-center px-4">
       {/* Hero section */}
       <div className="h-56 items-center w-full relative flex flex-col justify-center">
-        <h1 className="text-white text-4xl font-bold mb-4">Explore the Globe</h1>
-        <p className="text-gray-400 mb-8">
-          Visualizing connections across the world.
+        <h1 className="text-white text-4xl font-bold mb-4">Active Defensive Industries</h1>
+        <p className="text-gray-400 text-2xl font-bold mb-4">
+          One stop security solution for  
         </p>
+        <div className="md:text-2xl pl-2 sm:text-2xl text-xl font-bold sm:pl-3 lg:text-3xl text-gray">
+          <span>
+            <Typewriter
+              words={['Pool Safety', 'Office Security', 'Outdoor Monitoring']}
+              loop={true}
+              typeSpeed={120}
+              deleteSpeed={140}
+              delaySpeed={1000}
+              cursor
+              cursorStyle="_"
+            />
+          </span>
+        </div>
       </div>
       <div className="w-full h-96">
         <World globeConfig={globeConfig} data={globeData} />
