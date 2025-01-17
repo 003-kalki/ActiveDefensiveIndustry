@@ -10,7 +10,7 @@ extend({ ThreeGlobe });
 
 const RING_PROPAGATION_SPEED = 3;
 const aspect = 1.2;
-const cameraZ = 300;
+const cameraZ = 290;
 
 let numbersOfRings = [0];
 
@@ -23,17 +23,17 @@ export function Globe({
   const globeRef = useRef(null);
 
   const defaultProps = {
-    pointSize: 1,
+    pointSize: 2,
     atmosphereColor: "#ffffff",
     showAtmosphere: true,
-    atmosphereAltitude: 0.1,
+    atmosphereAltitude: 0.2,
     polygonColor: "rgba(255,255,255,0.7)",
     globeColor: "#1d072e",
     emissive: "#000000",
     emissiveIntensity: 0.1,
     shininess: 0.9,
     arcTime: 2000,
-    arcLength: 0.9,
+    arcLength: 10,
     rings: 1,
     maxRings: 3,
     ...globeConfig,
@@ -191,7 +191,7 @@ export function World(props) {
       <Globe {...props} />
       <OrbitControls
         enablePan={false}
-        enableZoom={false}
+        enableZoom={true}
         minDistance={cameraZ}
         maxDistance={cameraZ}
         autoRotateSpeed={1}
