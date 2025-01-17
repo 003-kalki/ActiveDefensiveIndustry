@@ -1,22 +1,50 @@
 import React from 'react';
-import {  Highlight } from "./ui/heroHighlight";
+import { World } from "./ui/Globe";
 function Hero() {
+  const globeConfig = {
+    globeColor: "#1d072e",
+    emissive: "#000000",
+    atmosphereColor: "#ffffff",
+    showAtmosphere: true,
+    ambientLight: 0xffffff,
+    directionalLeftLight: 0xffffff,
+    directionalTopLight: 0xffffff,
+    pointLight: 0xffffff,
+  };
+
+  const globeData = [
+    {
+      startLat: 37.7749,
+      startLng: -122.4194,
+      endLat: 51.5074,
+      endLng: -0.1278,
+      arcAlt: 0.3,
+      order: 1,
+      color: "#ff0000",
+    },
+    {
+      startLat: 34.0522,
+      startLng: -118.2437,
+      endLat: 35.6895,
+      endLng: 139.6917,
+      arcAlt: 0.4,
+      order: 2,
+      color: "#00ff00",
+    },
+  ];
   return (
     <div
       className="min-h-screen w-full bg-black bg-dot-pattern bg-dots-spacing flex flex-col items-center justify-center text-center px-4"
     >
       {/* Hero section */}
       <div className="h-56 items-center w-full relative flex flex-col justify-center">
-      <h1 className="text-white text-3xl md:text-6xl font-bold mb-4">
-          <Highlight className="text-white"> Stark Industry</Highlight>
-        </h1>
-        <p className="text-gray-300 text-lg md:text-2xl max-w-4xl mb-6">
-          Pioneering state-of-the-art security devices to safeguard what matters most. 
-          At Active Defensive Industry, innovation meets reliability to redefine safety.
+        <h1 className="text-white text-4xl font-bold mb-4">Explore the Globe</h1>
+        <p className="text-gray-400 mb-8">
+          Visualizing connections across the world.
         </p>
-        <button className="mt-4 bg-secondary text-black font-semibold px-6 py-3 rounded-lg hover:bg-white hover:text-secondary transition-all">
-          Learn More
-        </button>
+      </div>
+      <div className="w-full h-96">
+        <World globeConfig={globeConfig} data={globeData} />
       </div>
     </div>
   );
