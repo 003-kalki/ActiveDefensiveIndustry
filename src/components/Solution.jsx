@@ -1,7 +1,7 @@
 import React from 'react';
-import poolImage from "../assets/tesla.jpg";
-import homeImage from "../assets/tesla.jpg";
-import ranchImage from "../assets/tesla.jpg";
+import poolImage from "../assets/image3.jpg";
+import homeImage from "../assets/image5.jpg";
+import outdoor from "../assets/outdoor.jpg";
 
 export default function Solutions() {
   return (
@@ -43,7 +43,7 @@ export default function Solutions() {
           </p>
         </div>
         <div className="md:w-1/2">
-          <img src={ranchImage} alt="Ranch Security Solution" className="rounded-lg shadow-md" />
+          <img src={outdoor} alt="Ranch Security Solution" className="rounded-lg shadow-md" />
         </div>
       </div>
     </div>

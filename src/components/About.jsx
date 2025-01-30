@@ -1,11 +1,11 @@
 import React from 'react';
-import tesla from "../assets/tesla.jpg";
+import image4 from "../assets/image4.jpg";
 
 export default function About() {
   return (
-    <div className="text-white min-h-screen w-full bg-black flex flex-col md:flex-row items-center md:items-start px-6 md:px-12">
+    <div className="text-white min-h-screen w-full bg-black flex flex-col md:flex-row items-center md:items-start px-6 md:px-12 ">
       {/* Text Section */}
-      <div className="flex-1 md:pr-8 space-y-6">
+      <div className="flex-1 md:pr-8 space-y-6 mt-14">
         <h1 className="text-4xl font-bold mb-4">
           Unseen Threats, Smarter Solutions
         </h1>
@@ -21,10 +21,10 @@ export default function About() {
       </div>
 
       {/* Image Section */}
-      <div className="flex-1 flex justify-center mt-8 md:mt-0">
+      <div className="flex-1 flex justify-center mt-8 md:mt-14 mt-10">
         <img
           className="rounded-lg shadow-lg max-w-full md:max-w-[80%] lg:max-w-[60%] h-auto"
-          src={tesla}
+          src={image4}
           alt="Security Device"
         />
       </div>
