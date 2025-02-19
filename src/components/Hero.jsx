@@ -39,11 +39,11 @@ function Hero() {
     <div className="min-h-screen w-full bg-black bg-dot-pattern bg-dots-spacing flex flex-col items-center justify-center text-center px-4">
       {/* Hero section */}
       <div className="h-56 items-center w-full relative flex flex-col justify-center">
-        <h1 className="text-white text-4xl font-bold mb-4">Active Defensive Industries</h1>
+        <h1 className="text-white text-5xl font-bold mb-4">Active Defensive Industries</h1>
         <p className="text-gray-400 text-2xl font-bold mb-4">
           One stop security solution for  
         </p>
-        <div className="md:text-2xl pl-2 sm:text-2xl text-xl font-bold sm:pl-3 lg:text-3xl text-gray">
+        <div className="md:text-2xl pl-2 sm:text-2xl text-xl font-bold sm:pl-3 lg:text-3xl text-gray-400">
           <span>
             <Typewriter
               words={['Pool Safety', 'Office Security', 'Outdoor Monitoring']}

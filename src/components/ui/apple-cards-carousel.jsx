@@ -1,18 +1,11 @@
 "use client";
-import React, {
-  useEffect,
-  useRef,
-  useState,
-  createContext,
-  useContext,
-} from "react";
-import { IconArrowNarrowLeft, IconArrowNarrowRight, IconX } from "@tabler/icons-react";
+import React, { useEffect, useRef, useState, createContext } from "react";
+import { IconArrowNarrowLeft, IconArrowNarrowRight } from "@tabler/icons-react";
 import { cn } from "../../lib/utils.js";
-import { AnimatePresence, motion } from "framer-motion";
-import { useOutsideClick } from "../hooks/use-outside-click.jsx";
+import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom"; // ✅ Use react-router-dom for Vite
 
 export const CarouselContext = createContext({
-  onCardClose: () => {},
   currentIndex: 0,
 });
 
@@ -49,23 +42,8 @@ export const Carousel = ({ items, initialScroll = 0 }) => {
     }
   };
 
-  const handleCardClose = (index) => {
-    if (carouselRef.current) {
-      const cardWidth = isMobile() ? 230 : 384; // Adjust for mobile vs desktop
-      const gap = isMobile() ? 4 : 8;
-      const scrollPosition = (cardWidth + gap) * (index + 1);
-      carouselRef.current.scrollTo({
-        left: scrollPosition,
-        behavior: "smooth",
-      });
-      setCurrentIndex(index);
-    }
-  };
-
-  const isMobile = () => typeof window !== "undefined" && window.innerWidth < 768;
-
   return (
-    <CarouselContext.Provider value={{ onCardClose: handleCardClose, currentIndex }}>
+    <CarouselContext.Provider value={{ currentIndex }}>
       <div className="relative w-full">
         <div
           className="flex w-full overflow-x-scroll py-10 md:py-20 scroll-smooth [scrollbar-width:none]"
@@ -109,80 +87,25 @@ export const Carousel = ({ items, initialScroll = 0 }) => {
 };
 
 export const Card = ({ card, index, layout = false }) => {
-  const [open, setOpen] = useState(false);
-  const containerRef = useRef(null);
-  const { onCardClose, currentIndex } = useContext(CarouselContext);
+  const navigate = useNavigate(); // ✅ Use navigate from react-router-dom
 
-  useEffect(() => {
-    function onKeyDown(event) {
-      if (event.key === "Escape") {
-        handleClose();
-      }
-    }
-
-    if (open) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "auto";
-    }
-
-    window.addEventListener("keydown", onKeyDown);
-    return () => window.removeEventListener("keydown", onKeyDown);
-  }, [open]);
-
-  useOutsideClick(containerRef, () => handleClose());
-
-  const handleOpen = () => setOpen(true);
-
-  const handleClose = () => {
-    setOpen(false);
-    onCardClose(index);
+  const handleClick = () => {
+    // Redirect to a new page based on the card's category or title
+    navigate(`/product/${encodeURIComponent(card.title)}`);
   };
 
   return (
-    <>
-      <AnimatePresence>
-        {open && (
-          <div className="fixed inset-0 h-screen z-50 overflow-auto">
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              className="bg-black/80 backdrop-blur-lg h-full w-full fixed inset-0"
-            />
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              ref={containerRef}
-              layoutId={layout ? `card-${card.title}` : undefined}
-              className="max-w-5xl mx-auto bg-white dark:bg-neutral-900 h-fit z-[60] my-10 p-4 md:p-10 rounded-3xl"
-            >
-              <button
-                className="sticky top-4 h-8 w-8 right-0 ml-auto bg-black dark:bg-white rounded-full"
-                onClick={handleClose}
-              >
-                <IconX className="h-6 w-6 text-neutral-100 dark:text-neutral-900" />
-              </button>
-              <motion.p className="text-base font-medium text-black dark:text-white">
-                {card.category}
-              </motion.p>
-              <motion.p className="text-2xl md:text-5xl font-semibold text-neutral-700 mt-4 dark:text-white">
-                {card.title}
-              </motion.p>
-              <div className="py-10">{card.content}</div>
-            </motion.div>
-          </div>
-        )}
-      </AnimatePresence>
-      <motion.button
-        layoutId={layout ? `card-${card.title}` : undefined}
-        onClick={handleOpen}
-        className="rounded-3xl bg-gray-100 dark:bg-neutral-900 h-80 w-56 md:h-[40rem] md:w-96 overflow-hidden flex flex-col"
-      >
-        <BlurImage src={card.src} alt={card.title} className="object-cover h-full w-full" />
-      </motion.button>
-    </>
+    <motion.button
+    layoutId={layout ? `card-${card.title}` : undefined}
+    onClick={handleClick}
+    className="rounded-3xl bg-gray-100 dark:bg-neutral-900 h-80 w-56 md:h-[40rem] md:w-96 overflow-hidden flex flex-col relative"
+  >
+    <BlurImage src={card.src} alt={card.title} className="object-cover h-full w-full" />
+    <div className="absolute inset-0 flex flex-col justify-end p-4 bg-gradient-to-t from-black/80 to-transparent">
+      <p className="text-base font-medium text-white">{card.category}</p>
+      <p className="text-2xl md:text-5xl font-semibold text-white mt-2">{card.title}</p>
+    </div>
+  </motion.button>
   );
 };
 
