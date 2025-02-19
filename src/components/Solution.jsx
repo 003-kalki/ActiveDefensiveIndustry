@@ -1,7 +1,8 @@
 import React from 'react';
-import poolImage from "../assets/image3.jpg";
-import homeImage from "../assets/image5.jpg";
+import poolImage from "../assets/Image3.jpg";
+import homeImage from "../assets/Image5.jpg";
 import outdoor from "../assets/outdoor.jpg";
+
 
 export default function Solutions() {
   return (

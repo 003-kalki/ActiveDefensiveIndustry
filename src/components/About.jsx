@@ -1,5 +1,5 @@
 import React from 'react';
-import image4 from "../assets/image4.jpg";
+import Image4 from "../assets/Image4.jpg";
 
 export default function About() {
   return (
@@ -24,7 +24,7 @@ export default function About() {
       <div className="flex-1 flex justify-center mt-8 md:mt-14 mt-10">
         <img
           className="rounded-lg shadow-lg max-w-full md:max-w-[80%] lg:max-w-[60%] h-auto"
-          src={image4}
+          src={Image4}
           alt="Security Device"
         />
       </div>
