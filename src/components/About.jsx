@@ -1,5 +1,8 @@
 import React from 'react';
-import Image4 from "../assets/Image4.jpg";
+import Image4 from "../assets/index"; // Absolute path
+
+
+
 
 export default function About() {
   return (
