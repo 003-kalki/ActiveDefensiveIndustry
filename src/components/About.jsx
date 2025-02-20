@@ -1,5 +1,5 @@
 import React from 'react';
-import Image4 from "../assets/index"; // Absolute path
+import Image4 from "../../src/assets/Image4.jpg"; // Absolute path
 
 
 
