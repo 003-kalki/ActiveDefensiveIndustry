@@ -42,8 +42,7 @@ export default function Footer() {
         {/* Contact Info */}
         <div className="flex flex-col items-center md:items-start">
           <h2 className="text-xl font-semibold mb-4">Contact Us</h2>
-          <p className="text-gray-400 text-sm">Email: aadityaa93@gmail.com</p>
-          <p className="text-gray-400 text-sm">Phone: +1 (951) 518-3159</p>
+          <p className="text-gray-400 text-sm">Email:aprak015@ucr.edu</p>
           <div className="flex space-x-4 mt-4">
             <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
               <i className="fab fa-facebook-f text-gray-400 hover:text-white text-lg"></i>
