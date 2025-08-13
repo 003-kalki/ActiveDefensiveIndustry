@@ -9,7 +9,7 @@ const Navbar = () => {
   return (
     <nav className="w-full bg-black flex py-6 justify-between items-center px-6 sticky top-0 z-50">
       {/* Add padding to the left */}
-      <p className="text-white font-semibold font-poppins text-xl pl-4">ActiveDefenseIndustry</p>
+      <p className="text-white font-semibold font-poppins text-xl pl-4">ActiveDefenseIndustries</p>
 
       {/* Navigation Links */}
       <ul className="list-none sm:flex hidden justify-end items-center flex-1 pr-4">
